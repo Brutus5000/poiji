@@ -8,6 +8,8 @@ import java.lang.annotation.Target;
 
 /**
  * This annotations allows you to set the index of each row item.
+ * <p>
+ * Can only used be used once per model.
  *
  * Created by ar on 8/03/2018.
  */

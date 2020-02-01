@@ -7,6 +7,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * Allows splitting up a sheet into multiple entities.
+ *
  * @author Kome Avae 11/20/2018
  * */
 @Retention(RetentionPolicy.RUNTIME)

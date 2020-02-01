@@ -1,12 +1,19 @@
 package com.poiji.util;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import com.poiji.annotation.ExcelCellRange;
+
 import com.poiji.exception.PoijiInstantiationException;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -24,6 +31,19 @@ public class ReflectUtil {
         }
 
         return obj;
+    }
+
+    /**
+     * Returns all fields of a class (including superclasses)
+     */
+    public static List<Field> getAllFields(Class<?> type) {
+        List<Field> fields = new ArrayList<>(Arrays.asList(type.getDeclaredFields()));
+
+        if (type != Object.class) {
+            fields.addAll(getAllFields(type.getSuperclass()));
+        }
+
+        return fields;
     }
 
     /**
